@@ -1,0 +1,14 @@
+name: 'E2E Custom Github Action'
+description: 'This action runs cypress e2e tests and reports to slack.'
+inputs:
+  slack_client_id:
+    description: 'slack_client_id'
+  slack_client_secret:
+    description: 'slack_client_secret'
+  slack_verification_token:
+    description: 'slack_verification_token'
+  slack_auth_token:
+    description: 'slack_auth_token'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'

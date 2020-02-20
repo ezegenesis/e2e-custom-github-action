@@ -1,0 +1,51 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# Environment varaibles
+.env
+
+# dependencies
+/client-core
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.expo/*
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+web-report/
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.icloud
+*/dist
