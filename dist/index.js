@@ -1619,7 +1619,7 @@ try {
   const SLACK_AUTH_TOKEN = core.getInput('slack_auth_token');
 
   exec.exec(`yarn`)
-    .then(() => exec.exec(`yarn dev-core-web`))
+    .then(() => exec.exec(`yarn dev-core-ezepro`))
     .catch(e => core.setFailed(e));
 
     // exec.exec(`yarn`)
