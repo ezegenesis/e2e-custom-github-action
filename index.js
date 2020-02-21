@@ -28,8 +28,7 @@ try {
         \"CLIENT_URL\": \"${DEV_CLIENT_URL}\",
         \"API_BASE_URL\": \"${DEV_BASE_URL}\"
       }
-    }
-    `
+    }`
   }
 
   if (ENVIRONMENT === 'production') {
@@ -40,8 +39,7 @@ try {
         \"CLIENT_URL\": \"${PROD_CLIENT_URL}\",
         \"API_BASE_URL\": \"${PROD_BASE_URL}\"
       }
-    }
-    `
+    }`
   }
 
 
