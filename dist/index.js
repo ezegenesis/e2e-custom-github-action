@@ -1622,8 +1622,8 @@ try {
   const SLACK_AUTH_TOKEN = core.getInput('slack_auth_token');
 
   exec.exec(`git clone -b mvp https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/ezegenesis/client-core.git`)
-  .then(() => exec.exec(`yarn`))
-  .then(() => exec.exec(`nohup yarn dev-core-ezepro`))
+    .then(() => exec.exec(`yarn`))
+    .then(() => exec.exec(`nohup yarn dev-core-ezepro`))
     .then(() => exec.exec(`yarn e2e-tests`))
     .then(() => exec.exec(`pkill node`))
     .catch(e => core.setFailed(e));
