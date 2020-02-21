@@ -1658,7 +1658,7 @@ try {
   exec.exec(`git clone -b mvp https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/ezegenesis/client-core.git`)
     .then(() => exec.exec(`yarn`))
     .then(() => exec.exec(`yarn start-bg-server`))
-    .then(() => exec.exec(`echo ${cypress_config} > ./cypress.json`))
+    .then(() => exec.exec(`echo "${cypress_config}" > ./cypress.json`))
     .then(() => exec.exec(`cat ./cypress.json`))
     .then(() => exec.exec(`yarn e2e-tests`))
     .then(() => exec.exec(`pkill node`))
