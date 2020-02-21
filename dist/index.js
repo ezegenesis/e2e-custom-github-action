@@ -1638,7 +1638,8 @@ try {
         \"CLIENT_URL\": \"${DEV_CLIENT_URL}\",
         \"API_BASE_URL\": \"${DEV_BASE_URL}\"
       }
-    }`
+    }
+    `
   }
 
   if (ENVIRONMENT === 'production') {
@@ -1649,7 +1650,8 @@ try {
         \"CLIENT_URL\": \"${PROD_CLIENT_URL}\",
         \"API_BASE_URL\": \"${PROD_BASE_URL}\"
       }
-    }`
+    }
+    `
   }
 
 
@@ -1657,7 +1659,14 @@ try {
     .then(() => exec.exec(`yarn`))
     .then(() => exec.exec(`yarn start-bg-server`))
     .then(() => exec.exec(`pwd`))
-    .then(() => exec.exec('echo ' + cypress_config + ' > /home/runner/work/ezepro-fe-mvp/ezepro-fe-mvp/cypress.json'))
+    .then(() => exec.exec(`echo "{
+      \"baseUrl\": \"${DEV_CLIENT_URL}\",
+      \"video\": false,
+      \"env\": {
+        \"CLIENT_URL\": \"${DEV_CLIENT_URL}\",
+        \"API_BASE_URL\": \"${DEV_BASE_URL}\"
+      }
+    }" > /home/runner/work/ezepro-fe-mvp/ezepro-fe-mvp/cypress.json`))
     .then(() => exec.exec(`cat /home/runner/work/ezepro-fe-mvp/ezepro-fe-mvp/cypress.json`))
     .then(() => exec.exec(`yarn e2e-tests`))
     .then(() => exec.exec(`pkill node`))
