@@ -1624,7 +1624,7 @@ try {
   exec.exec(`git clone -b mvp https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/ezegenesis/client-core.git`)
     .then(() => exec.exec(`yarn global add pm2`))
     .then(() => exec.exec(`yarn`))
-    // .then(() => exec.exec(`pm2 start npm --no-automation --name fe -- run dev-core-ezepro`))
+    .then(() => exec.exec(`pm2 start npm --no-automation --name fe -- run dev-core-ezepro`))
     .then(() => exec.exec(`yarn e2e-tests`))
     .then(() => exec.exec(`pkill node`))
     .catch(e => core.setFailed(e));
