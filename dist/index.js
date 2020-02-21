@@ -1658,9 +1658,10 @@ try {
   exec.exec(`git clone -b mvp https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/ezegenesis/client-core.git`)
     .then(() => exec.exec(`yarn`))
     .then(() => exec.exec(`yarn start-bg-server`))
-    .then(() => exec.exec(`echo "${cypress_config}" > "cypress.json"`))
-    .then(() => exec.exec(`pwd && ls /home/runner/work`))
-    .then(() => exec.exec(`cat cypress.json`))
+    .then(() => exec.exec(`pwd`))
+    .then(() => exec.exec(`echo "${cypress_config}" > /home/runner/work/ezepro-fe-mvp/ezepro-fe-mvp/cypress.json`))
+    .then(() => exec.exec(`ls /home/runner/work`))
+    .then(() => exec.exec(`cat  /home/runner/work/ezepro-fe-mvp/ezepro-fe-mvp/cypress.json`))
     .then(() => exec.exec(`yarn e2e-tests`))
     .then(() => exec.exec(`pkill node`))
     .catch(e => core.setFailed(e));
