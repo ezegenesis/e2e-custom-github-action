@@ -3,7 +3,7 @@ const github = require('@actions/github');
 const exec = require('@actions/exec');
 
 try {
-  const ENVIRONMENT = core.getInput('env');
+  const ENVIRONMENT = core.getInput('environment');
 
   const GITHUB_USERNAME = core.getInput('github_username');
   const GITHUB_PASSWORD = core.getInput('github_password');
@@ -48,7 +48,7 @@ try {
   exec.exec(`git clone -b mvp https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/ezegenesis/client-core.git`)
     .then(() => exec.exec(`yarn`))
     .then(() => exec.exec(`yarn start-bg-server`))
-    .then(() => exec.exec(`export CLIENT_URL=${DEV_CLIENT_URL} && export API_BASE_URL=${DEV_BASE_URL} && yarn e2e-tests`))
+    .then(() => exec.exec(`yarn e2e-tests`))
     .then(() => exec.exec(`pkill node`))
     .catch(e => core.setFailed(e));
     
