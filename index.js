@@ -11,7 +11,7 @@ try {
   const SLACK_VERIFICATION_TOKEN = core.getInput('slack_verification_token');
   const SLACK_AUTH_TOKEN = core.getInput('slack_auth_token');
 
-  exec.exec(`git clone -b mvp https://$GITHUB_USERNAME:$GITHUB_PASSWORD@github.com/ezegenesis/client-core.git`)
+  exec.exec(`git clone -b mvp https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/ezegenesis/client-core.git`)
     .then(() => exec.exec(`yarn`))
     .then(() => exec.exec(`yarn dev-core-ezepro`))
     .catch(e => core.setFailed(e));
