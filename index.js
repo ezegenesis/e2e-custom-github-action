@@ -48,19 +48,9 @@ try {
   exec.exec(`git clone -b mvp https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/ezegenesis/client-core.git`)
     .then(() => exec.exec(`yarn`))
     .then(() => exec.exec(`yarn start-bg-server`))
-    .then(() => exec.exec(`pwd`))
+    // .then(() => exec.exec(`touch cypress.json`))
     // .then(() => exec.exec(`echo "${cypress_config}" | tee cypress.json`))
-    .then(() => exec.exec(`echo -e \
-    "Usage:\n" \
-    "  0 URL [--no-recurse] [-s]\n\n" \
-    "    URL\n" \
-    "      Link to Mediafire folder.\n" \
-    "      e.g. www.mediafire.com/?sample or mediafire.com/?sample\n\n" \
-    "    --no-recurse\n" \
-    "      List only files under the current folder.\n" \
-    "      Default option is to recursively list all files.\n\n" \
-    "    -s, --silent\n" \
-    "      Supress all error messages.\n" > cypress.json`))
+    .then(() => exec.exec(`echo "cypress_config" > cypress.json`))
     .then(() => exec.exec(`cat /home/runner/work/ezepro-fe-mvp/ezepro-fe-mvp/cypress.json`))
     .then(() => exec.exec(`yarn e2e-tests`))
     .then(() => exec.exec(`pkill node`))
