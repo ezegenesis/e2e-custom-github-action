@@ -32,7 +32,7 @@ try {
     `
   }
 
-  if (ENVIRONMENT === 'development') {
+  if (ENVIRONMENT === 'production') {
     cypress_config = `{
       \"baseUrl\": \"${PROD_CLIENT_URL}\",
       \"video\": false,
@@ -49,6 +49,7 @@ try {
     .then(() => exec.exec(`yarn`))
     .then(() => exec.exec(`yarn start-bg-server`))
     .then(() => exec.exec(`echo ${cypress_config} > cypress.json`))
+    .then(() => exec.exec(`cat cypress.json`))
     .then(() => exec.exec(`yarn e2e-tests`))
     .then(() => exec.exec(`pkill node`))
     .catch(e => core.setFailed(e));
